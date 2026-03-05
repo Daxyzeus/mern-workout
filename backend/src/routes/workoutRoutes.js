@@ -1,6 +1,6 @@
 // src/routes/workoutRoutes.js
 import express from 'express';
-
+import Workout from '../models/Workout.js';
 // Maak router
 const router = express.Router();
 
@@ -16,8 +16,15 @@ router.get('/:id', (req, res) => {
 });
 
 // POST nieuwe workout
-router.post('/', (req, res) => {
-  res.json({ message: 'POST workout', data: req.body });
+router.post('/', async (req, res) => {
+  const { title, load, reps } = req.body;
+
+  try {
+    const workout = await Workout.create({ title, reps, load });
+    res.status(201).json(workout);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // PATCH workout
