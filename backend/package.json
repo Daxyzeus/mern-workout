@@ -1,0 +1,23 @@
+{
+  "name": "mern-workout",
+  "version": "1.0.0",
+  "description": "MERN Stack Backend",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch --env-file=.env server.js",
+    "start": "node --env-file=.env server.js"
+  },
+  "keywords": [
+    "mern",
+    "express",
+    "mongodb"
+  ],
+  "author": "Jouw Naam",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.4"
+  }
+}
