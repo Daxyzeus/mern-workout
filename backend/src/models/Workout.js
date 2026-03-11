@@ -7,11 +7,14 @@ const Schema = mongoose.Schema;
 const workoutSchema = new Schema({
   title: {
     type: String,
-    required: true
+     required: true,
+    trim: true,        // Verwijdert spaties
+    maxlength: 100     // Max 100 tekens
   },
   reps: {
     type: Number,
-    required: true
+    required: true,
+    min: 1             // Min 1 (geen 0 of negatief)
   },
   load: {
     type: Number,
