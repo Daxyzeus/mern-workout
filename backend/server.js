@@ -3,6 +3,7 @@ import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import workoutRoutes from './src/routes/workoutRoutes.js';
+import authRoutes from './src/routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/workouts', workoutRoutes);
+app.use('/api/auth', authRoutes);
 
 // Verbind met MongoDB en start server
 mongoose.connect(process.env.MONGO_URI)
